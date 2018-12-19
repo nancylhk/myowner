@@ -20,9 +20,9 @@ export default {
 		}
 		//遮罩层
 		if(isLoading) {
-			var loadingInstance = Loading.service({
-				text: "加载中,请稍后..."
-			});
+			// var loadingInstance = Loading.service({
+			// 	// text: "加载中,请稍后..."
+			// });
 		}
 		axios.get(url, options).then((response) => {
 			// 响应成功回调
@@ -46,13 +46,13 @@ export default {
 				sucCb(response.data);
 			}
 			if(isLoading) {
-				loadingInstance.close();
+				// loadingInstance.close();
 			}
 		}, (response) => {
 			errorCb(response);
 			if(isLoading) {
 				setTimeout(() => {
-					loadingInstance.close();
+					// loadingInstance.close();
 				}, 1000);
 			}
 		})
@@ -75,9 +75,9 @@ export default {
 		}
 
 		//遮罩层
-		if(isLoading) {
-			var loadingInstance = Loading.service();
-		}
+		// if(isLoading) {
+		// 	var loadingInstance = Loading.service();
+		// }
 		axios.post(url, body, options).then((response) => {
 			// 响应成功回调
 			if(response.data.errorCode) {
@@ -100,14 +100,14 @@ export default {
 				sucCb(response.data);
 			}
 			if(isLoading) {
-				loadingInstance.close();
+				// loadingInstance.close();
 			}
 
 		}, (response) => {
 			// 响应错误回调
 			errorCb(response);
 			if(isLoading) {
-				loadingInstance.close();
+				// loadingInstance.close();
 			}
 		})
 	},

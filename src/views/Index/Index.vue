@@ -172,7 +172,7 @@
 					</div>
 					<div class="xj_newsrnr">
 						<ul>
-							<template v-for="(item,index) in noticeList">
+							<template v-for="(item,index) in noticeList.slice(0,3)">
 								<li @click="noticeDetail(item.id,item.pid,item.cid)">
 									<h3><span class="noticeTitle nnotice">{{item.title}}</span><span class="updateTime">{{item.update_time}}</span></h3>
 									<p>{{item.message}}</p>
@@ -191,7 +191,7 @@
 					</div>
 					<div class="xj_newsrnr">
 						<ul>
-							<template v-for="(item,index) in lastlist">
+							<template v-for="(item,index) in lastlist.slice(0,3)">
 								<li @click="noticeDetail(item.id,item.pid,item.cid)">
 									<h3><span class="noticeTitle">{{item.title}}</span><span class="updateTime">{{item.update_time}}</span></h3>
 									<p>{{item.message}}</p>
@@ -475,11 +475,18 @@
 					self.duilian2 = self.duilian[1].img
 					self.movePicInfo = self.imgSrc.filter(function(item){
 						return item.advtype=='2'
-					})								
-					self.movePicSrc = self.movePicInfo[0].img
-					setTimeout(function(){				
-						self.move()
-					},1500)
+					})
+					console.log(self.movePicInfo)
+					if(self.movePicInfo.length == 0){
+						self.showMoveBox = false
+					}else{
+						self.movePicSrc = self.movePicInfo[0].img
+						setTimeout(function(){				
+							self.move()
+						},1500)
+					}								
+					
+					
 				},function(res){
 
 				})
@@ -680,10 +687,10 @@
 		border: 1px solid red;
 	}
 
-	
+
 	.banner-img {
-		height: 100%;
-		width: 100%;
+		height: 426px;
+		width: 1000px;
 	}
 	
 	.xj_hot1 h2,.xj_hot2 h2,.xj_hot3 h2,.xj_hot4 h2,.xj_hot4 h2{

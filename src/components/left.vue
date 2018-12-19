@@ -31,6 +31,8 @@ export default {
 	
 	methods: {
 		link(pid,cid) {
+			this.$store.dispatch('updateLeaveMsgRefresh',true)
+			// console.log(this.$store.state.common.leaveMsgRefresh)
 			this.$router.push({
 				path:`/page/content/${pid}/${cid}`
 			})

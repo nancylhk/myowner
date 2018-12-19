@@ -319,7 +319,7 @@ import SIdentify from '../../components/identify'
 		mounted() {		
 			this.getLeftNavList()
 			this.identifyCode = "";
-   			this.makeCode(this.identifyCodes, 4);
+   			// this.makeCode(this.identifyCodes, 4);
 		},
 		methods: {
 			randomNum(min, max) {
@@ -493,6 +493,7 @@ import SIdentify from '../../components/identify'
 					},function(res){					
 						self.leaveMessageList = res  
 						self.getLeaveMsgTotal()
+						self.makeCode(self.identifyCodes, 4);
 					},function(res){
 						self.leaveMessageList = []
 					})
