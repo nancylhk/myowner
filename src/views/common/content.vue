@@ -24,7 +24,7 @@
 				<h3>{{parentCategory.categoryName}}</h3>
 			</div> 
 			<div class="N_news">
-				<div v-for="(item,index) in content">
+				<div v-for="(item,index) in content" :key="index">
 					<router-link :to="'/page/detail'+'/'+ item.id + '/' + pid +'/'+categoryId">
 						<dl>
 							<dd>
@@ -169,7 +169,7 @@
 					<h3>留言列表</h3>
 				</div> 			
 				<div class="N_news">
-					<div v-for="(item,index) in leaveMessageList">
+					<div v-for="(item,index) in leaveMessageList" :key="index">
 						<router-link :to="'/page/comments'+'/'+ item.messageId + '/' + pid +'/'+categoryId">
 							<dl class="liuyanbox">
 								<dd>
@@ -189,7 +189,8 @@
 					</el-pagination>
 				</div>
 			</div>
-			<div v-else>
+			<transition name="fade">
+			<div v-if="!leaveMessage">
 				<div class="N_title">
 					<span>
 						<button class="msgButton post" @click="postLeaveMsg">提交留言</button>
@@ -232,6 +233,7 @@
 					</el-form>
 				</div>
 			</div>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -577,6 +579,12 @@ import SIdentify from '../../components/identify'
 	}
 </script>
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .code {
   width: 109px;
   height: 40px;

@@ -73,7 +73,7 @@
 					<div class="xj_fwlnr">
 						<div class="swiper-container">
 							<div class="swiper-wrapper">
-								<template v-for="item in businessGuideList">
+								<template v-for="item in businessGuideList" >
 									<div class="swiper-slide" @click="businessGuide(item.pid,item.id,item.cid)">
 										<div align="center">
 											<img :src="item.imgUrl" class="swiperPic">
@@ -689,7 +689,7 @@
 
 
 	.banner-img {
-		height: 426px;
+		height: 400px;
 		width: 1000px;
 	}
 	

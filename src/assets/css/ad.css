@@ -10,7 +10,7 @@
 .floatingAd .text .button{position:relative;float:right;top:5px;right:5px;width:16px;height:16px;background:url("../images/close.png") no-repeat;cursor:pointer;}
 .floatingAd .text .title{position:relative;float:left;font-size:12px;margin-left:5px;}
 .el-carousel__container{
-    height: 426px!important;
+    height: 400px!important;
 }
 
 /* @media screen and (min-width:992px) and (max-width:1399px){
